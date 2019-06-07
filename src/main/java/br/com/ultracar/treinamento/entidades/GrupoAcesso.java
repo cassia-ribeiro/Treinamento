@@ -25,7 +25,7 @@ public class GrupoAcesso implements Serializable {
 	
 	@NotBlank
 	@Size(min = 5, max = 45)
-	@Column(name = "ds_descrucao")
+	@Column(name = "ds_descricao")
 	private String descricao;
 	
 

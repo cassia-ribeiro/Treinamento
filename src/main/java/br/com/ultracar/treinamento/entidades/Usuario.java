@@ -34,6 +34,11 @@ public class Usuario implements Serializable {
 	@SequenceGenerator(name = "usuario_sequence", sequenceName = "usuario_id_sequence", allocationSize = 1)
 	@Column(name = "id_usuario", nullable = false)
 	private Long id;
+	
+	@NotBlank
+	@Size(min = 5, max = 45)
+	@Column(name = "ds_login", nullable = false, length = 45)
+	private String login;	
 
 	@NotBlank
 	@Size(min = 5, max = 45)
@@ -72,6 +77,16 @@ public class Usuario implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+
+	public String getLogin() {
+		return login;
+	}
+
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 
