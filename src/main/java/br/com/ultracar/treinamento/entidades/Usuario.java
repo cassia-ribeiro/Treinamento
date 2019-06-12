@@ -1,9 +1,9 @@
 package br.com.ultracar.treinamento.entidades;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -64,7 +64,10 @@ public class Usuario implements Serializable {
 	
 	// no mappedBy coloco a referencia do objeto criado pela classa da List
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario") 
-	private List<PermissaoAcesso> permissoesDeAcesso = new ArrayList<>();
+	private Set<PermissaoAcesso> permissoesDeAcesso = new HashSet<>();
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+	private Set<GrupoAcesso> gruposDeAcesso = new HashSet<>();
 	
 	@Transient
 	private String token;
@@ -150,14 +153,26 @@ public class Usuario implements Serializable {
 	}
 
 
-	public List<PermissaoAcesso> getPermissoesDeAcesso() {
+	public Set<PermissaoAcesso> getPermissoesDeAcesso() {
 		return permissoesDeAcesso;
 	}
 
 
-	public void setPermissoesDeAcesso(List<PermissaoAcesso> permissoesDeAcesso) {
+	public void setPermissoesDeAcesso(Set<PermissaoAcesso> permissoesDeAcesso) {
 		this.permissoesDeAcesso = permissoesDeAcesso;
 	}
+
+
+	public Set<GrupoAcesso> getGruposDeAcesso() {
+		return gruposDeAcesso;
+	}
+
+
+	public void setGruposDeAcesso(Set<GrupoAcesso> gruposDeAcesso) {
+		this.gruposDeAcesso = gruposDeAcesso;
+	}
+
+
 	
 	
 	

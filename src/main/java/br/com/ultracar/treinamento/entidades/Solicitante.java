@@ -1,14 +1,23 @@
 package br.com.ultracar.treinamento.entidades;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @SuppressWarnings("serial")
 @Entity
@@ -21,6 +30,14 @@ public class Solicitante implements Serializable  {
 	@SequenceGenerator(name = "solicitante_sequence", sequenceName = "solicitante_id_sequence", allocationSize = 1)
 	@Column(name = "id_solicitante", nullable = false)
 	private Long id;
+	
+	@NotNull
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_endereco", foreignKey = @ForeignKey(name = "fk_solicitante_endereco"), nullable = false)
+	private Endereco endereco;
+	
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "servicos")
+	private Set<Endereco> enderecoServicos = new HashSet<>();	
 
 	public Long getId() {
 		return id;
