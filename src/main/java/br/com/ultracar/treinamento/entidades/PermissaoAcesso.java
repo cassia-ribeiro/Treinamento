@@ -18,6 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -54,8 +55,11 @@ public class PermissaoAcesso implements Serializable{
 	@JoinTable(name="tb_permissao_acesso_operacao", 
 			joinColumns= {@JoinColumn(name="id_operacao", foreignKey = @ForeignKey(name = "fk_operacao_permissao_acesso"))},
 			inverseJoinColumns= {@JoinColumn(name="id_permissao_acesso", foreignKey = @ForeignKey(name = "fk_permissao_acesso_operacao"))})
-	private Set<Operacao> operacoes = new HashSet<>();
-
+	private Set<Operacao> operacoes = new	 HashSet<>();
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "permissaoAcesso")
+	private Set<Menu> menus = new HashSet<>();
+	
 	public Long getId() {
 		return id;
 	}
@@ -86,6 +90,22 @@ public class PermissaoAcesso implements Serializable{
 
 	public void setGrupoAcesso(GrupoAcesso grupoAcesso) {
 		this.grupoAcesso = grupoAcesso;
+	}
+
+	public Set<Operacao> getOperacoes() {
+		return operacoes;
+	}
+
+	public void setOperacoes(Set<Operacao> operacoes) {
+		this.operacoes = operacoes;
+	}
+
+	public Set<Menu> getMenus() {
+		return menus;
+	}
+
+	public void setMenus(Set<Menu> menus) {
+		this.menus = menus;
 	}
 	
 

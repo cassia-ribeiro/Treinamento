@@ -2,6 +2,8 @@ package br.com.ultracar.treinamento.repositorios;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -19,6 +21,10 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	@Query("Select u From Usuario u Where u.senha = :senha ")
 	public Usuario findUsuarioBySenha(String senha);
 	
+	//Buscar todos os usuarios paginados
+	@Query("Select u From Usuario u ")	
+	public Page<Usuario> findAllUsuario(Usuario usuario, Pageable pageable);
+	
 	@Query(		"Select operacoes From Usuario usuario "
 			+ 	"Inner Join usuario.permissoesDeAcesso permissoesDeAcesso "
 			+	"Inner Join permissoesDeAcesso.operacoes operacoes "
@@ -30,5 +36,12 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 			+	"Inner Join permissoesDeAcesso.operacoes operacoes "
 			+	"Where usuario.id = :idUsuario ")
 	public List<Operacao> findOperacaoByUsuario(@Param("idUsuario") Long id);
+		
+	//buscar todos os usuario que tem a operacao de consulta	
+	@Query(     "Select usuario from Usuario usuario "
+			+	"Inner Join usuario.permissoesDeAcesso permissoesDeAcesso "
+			+ 	"Inner Join permissoesDeAcesso.operacoes operacoes "
+			+ 	"Where operacoes.operacao = :enumOperacao ")
+	public List<Usuario> findUsuarioByOperacao(String enumOperacao);
 
 }

@@ -11,16 +11,21 @@ import br.com.ultracar.treinamento.entidades.Usuario;
 import br.com.ultracar.treinamento.repositorios.UsuarioRepository;
 
 @Service
-@Transactional(propagation = Propagation.REQUIRED) //mesmo sendo default, mas para padronizacao coloca-se required
+@Transactional(propagation = Propagation.REQUIRED)
 public class UsuarioService {
-
+	
 	@Autowired
 	private UsuarioRepository repositorio;
 	
+	@Autowired
+	private UsuarioNewService newService;
 	
-	public void salvarUsuario(Usuario usuario) {
-		//.save irá dar o update como inserir
-		this.repositorio.save(usuario);
+	public Usuario findOne(Long id) {
+		return this.repositorio.getOne(id);
+	}
+	
+	public Usuario salvarUsuario(Usuario usuario) {
+		return this.repositorio.save(usuario);
 	}
 	
 	public void deletarUsuario(Usuario usuario) {
@@ -29,10 +34,13 @@ public class UsuarioService {
 	
 	public void deletarMuitosUsuario(List<Long> ids) {
 		ids.parallelStream().forEach(id -> {
+			this.repositorio.save(this.repositorio.getOne(id));
 			if(this.repositorio.existsById(id)) {
-				this.repositorio.deleteById(id);
+				this.newService.deletarUmUsuario(id);
 			}
 		});
-	}	
+	}
+	
+	
 
 }

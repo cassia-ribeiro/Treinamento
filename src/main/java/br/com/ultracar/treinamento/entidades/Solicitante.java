@@ -36,9 +36,6 @@ public class Solicitante implements Serializable  {
 	@JoinColumn(name = "id_endereco", foreignKey = @ForeignKey(name = "fk_solicitante_endereco"), nullable = false)
 	private Endereco endereco;
 	
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "servicos")
-	private Set<Endereco> enderecoServicos = new HashSet<>();	
-
 	public Long getId() {
 		return id;
 	}
@@ -46,5 +43,13 @@ public class Solicitante implements Serializable  {
 	public void setId(Long id) {
 		this.id = id;
 	}
-		
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+	
 }

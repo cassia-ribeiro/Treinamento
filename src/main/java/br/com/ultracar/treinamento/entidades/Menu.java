@@ -94,4 +94,20 @@ public class Menu implements Serializable {
 		this.indice = indice;
 	}
 
+	public PermissaoAcesso getPermissaoAcesso() {
+		return permissaoAcesso;
+	}
+
+	public void setPermissaoAcesso(PermissaoAcesso permissaoAcesso) {
+		this.permissaoAcesso = permissaoAcesso;
+	}
+
+	public Menu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(Menu menu) {
+		this.menu = menu;
+	}
+	
 }
