@@ -24,10 +24,10 @@ public interface ServicoRepository extends JpaRepository<Servico, Long>{
 	@Modifying
 	@Query("Update Servico s Set s.solicitante = ?1 Where s.solicitante.id = ?2 ")
 	Integer updateAllBySolicitante(Solicitante solicitante, Long antigoSolicitante);
-	
+/*	
 	//Buscar de forma assincrona todos os servicos da operacao de incluir
 	@Async
 	@Query("Select  ")
 	public Future<Servico> findByServicoOperacaoIncluir();	
-	
+*/	
 }

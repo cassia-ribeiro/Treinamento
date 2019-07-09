@@ -20,7 +20,7 @@ public interface CidadeRepository extends JpaRepository<Cidade, Long> {
 	public List<Bairro> findCidadeByBairro(Cidade cidade);
 
 	@Query(		"Select b From Bairro b "
-			+ 	"Inner Join bairro.cidade c "
+			+ 	"Inner Join b.cidade c "
 			+	"Where c.id = :idCidade ")
 	public List<Bairro> findCidadeByBairro(@Param("idCidade") Long id);
 	
