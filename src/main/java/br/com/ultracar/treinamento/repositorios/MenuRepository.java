@@ -19,6 +19,7 @@ public interface MenuRepository extends JpaRepository<Menu, Long> {
 	@Query("Select m From Menu m where m.url = :url")
 	public Menu findMenuByUrl(String url);	
 		
+	
 	//buscar todos os menu do usuario
 	@Query("Select menu From Menu menu " 
 			+ "Inner Join menu.permissaoAcesso permissaoAcesso "
@@ -27,4 +28,12 @@ public interface MenuRepository extends JpaRepository<Menu, Long> {
 			+ "Where usuario = :usuario")
 	public List<Menu> findByUsuario(Usuario usuario);
 
+	//buscar todos os menus de um determinado usuario
+	@Query("Select menu From Menu menu " 
+			+ "Inner Join menu.permissaoAcesso permissaoAcesso "
+			+ "Inner Join permissaoAcesso.grupoAcesso grupoAcesso " 
+			+ "Inner Join grupoAcesso.usuario usuario "
+			+ "Where usuario.id = :idUsuario")
+	public List<Menu> findByIdUsuario(Long IdUsuario);	
+	
 }
