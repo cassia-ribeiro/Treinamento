@@ -17,6 +17,7 @@ public interface PontoRepository extends JpaRepository<Ponto, Long>{
 			+ "Where cidade = :cidade")	
 	public boolean findByPontoCidade (Cidade cidade);
 
+	
 	/*	//excluir todos os pontos de uma cidade
 	@Modifying
 	@Query("Delete From Ponto ponto "
