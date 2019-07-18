@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-@ControllerAdvice   //Com essa anotação a classe ira 'observar' toda a aplicacao 
+@ControllerAdvice   //Com essa anotação a classe ira 'observar' toda a aplicacao para retornar o erro
 public class ControleExceptionHandler extends ResponseEntityExceptionHandler {
 
 
