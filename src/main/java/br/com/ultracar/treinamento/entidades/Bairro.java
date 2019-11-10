@@ -36,13 +36,13 @@ public class Bairro implements Serializable{
 	@Column(name = "ds_nome", nullable = false, length = 100)
 	private String nome;
 
-/*		
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bairro")
-	private Set<Endereco> endereco = new HashSet<>();
-*/	
-
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "bairro")
-	private Set<Endereco> endereco = new HashSet<>();	
+		
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bairro")
+//	private Set<Endereco> endereco = new HashSet<>();
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_endereco", foreignKey = @ForeignKey(name = "fk_bairro_endereco"), nullable = false)
+	private Endereco endereco;	
 	
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
