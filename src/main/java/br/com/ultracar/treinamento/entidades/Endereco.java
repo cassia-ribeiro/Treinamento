@@ -17,7 +17,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -43,27 +42,33 @@ public class Endereco implements Serializable{
 	@Column(name = "ds_logradouro", nullable = false, length = 128)
 	private String logradouro;
 
-	@Column(name = "ds_complemento", nullable = false, length = 255)
-	private String complemento;
-	
-	@Column(name = "nm_numero")
-	private Integer numero;	
-
 	@NotNull
 	@Enumerated(EnumType.STRING)
 	@Column(name = "en_tipo_local", nullable = false, length = 15)
 	private TipoLocal tipoLocal;
-	
+/*	
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_bairro", foreignKey = @ForeignKey(name = "fk_endereco_bairro"), nullable = false)
 	private Bairro bairro;	
+*/	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "endereco")
+	private Set<Bairro> bairro = new HashSet<>();
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "endereco")
 	private Set<Ponto> ponto =  new HashSet<>();
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "endereco")
 	private Set<Solicitante> solicitante =  new HashSet<>();
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "endereco")
+	private Set<Cep> cep =  new HashSet<>();	
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="tb_endereco_bairro", 
+			joinColumns= {@JoinColumn(name="id_endereco", foreignKey = @ForeignKey(name = "fk_endereco_bairro"))},
+			inverseJoinColumns= {@JoinColumn(name="id_bairro", foreignKey = @ForeignKey(name = "fk_bairro_endereco"))})
+	private Set<Bairro> bairros = new HashSet<>();	
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="tb_servico", 
@@ -86,7 +91,7 @@ public class Endereco implements Serializable{
 	public void setLogradouro(String logradouro) {
 		this.logradouro = logradouro;
 	}
-
+/*
 	public String getComplemento() {
 		return complemento;
 	}
@@ -102,7 +107,7 @@ public class Endereco implements Serializable{
 	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
-
+*/
 	public TipoLocal getTipoLocal() {
 		return tipoLocal;
 	}

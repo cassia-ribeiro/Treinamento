@@ -12,8 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -35,9 +35,14 @@ public class Bairro implements Serializable{
 	@Size(min = 2, max = 100)
 	@Column(name = "ds_nome", nullable = false, length = 100)
 	private String nome;
-	
+
+/*		
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bairro")
 	private Set<Endereco> endereco = new HashSet<>();
+*/	
+
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "bairro")
+	private Set<Endereco> endereco = new HashSet<>();	
 	
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)

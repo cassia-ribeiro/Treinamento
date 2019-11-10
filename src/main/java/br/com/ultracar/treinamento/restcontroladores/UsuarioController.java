@@ -1,10 +1,14 @@
 package br.com.ultracar.treinamento.restcontroladores;
 
+import java.util.List;
+
 import javax.validation.Valid;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,11 +21,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.ultracar.treinamento.entidades.Categoria;
 import br.com.ultracar.treinamento.entidades.Usuario;
 import br.com.ultracar.treinamento.servicos.UsuarioService;
 
 @RestController
-@RequestMapping("/api/usuario/")
+@RequestMapping("/api/usuario")
 public class UsuarioController {
 
 	@Autowired
@@ -44,12 +49,30 @@ public class UsuarioController {
 		
 	}
 
+/*	@GetMapping
+	public List<Usuario> findAll() {
+		
+		return usuarioService.findAll();
+	}	*/
+	
+	
+	@GetMapping
+	public Page<Usuario> findAllUsuarioPage(Usuario usuario, Pageable pageable) {
+		return usuarioService.findAllUsuarioPage(usuario, pageable);
+	}
 	//buscar um usuario
-	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON)
+/*	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<?> buscarPeloId(@PathVariable(name = "id", required = true) Long idUsuario) {
 		Usuario usuario = usuarioService.findOne(idUsuario);
 		return new ResponseEntity<>(usuario, HttpStatus.OK);
 	}
+*/	
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Usuario> buscarPeloId(@PathVariable Long id) {
+		Usuario usuario = usuarioService.findOne(id);
+		 return usuario != null ? ResponseEntity.ok(usuario) : ResponseEntity.notFound().build();
+	}	
 
 	//deletar um usuario
 	@DeleteMapping("/{id}")
