@@ -12,17 +12,16 @@ public interface PontoRepository extends JpaRepository<Ponto, Long>{
 
 	@Query("Select ponto From Ponto ponto "
 			+ "Inner Join ponto.endereco endereco "
-			+ "Inner Join endereco.bairro bairro "
+			+ "Inner Join endereco.bairros bairro "
 			+ "Inner Join bairro.cidade cidade "
-			+ "Where cidade = :cidade")	
+			+ "Where cidade = :cidade")		
 	public boolean findByPontoCidade (Cidade cidade);
-
 	
 	/*	//excluir todos os pontos de uma cidade
 	@Modifying
 	@Query("Delete From Ponto ponto "
 			+ "Inner Join ponto.endereco endereco "
-			+ "Inner Join endereco.bairro bairro "
+			+ "Inner Join endereco.bairros bairro "
 			+ "Inner Join bairro.cidade cidade "
 			+ "Where cidade = :cidade")		
 	void deleteByPontoCidade(Cidade cidade);

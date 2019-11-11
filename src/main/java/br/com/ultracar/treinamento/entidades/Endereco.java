@@ -46,14 +46,6 @@ public class Endereco implements Serializable{
 	@Enumerated(EnumType.STRING)
 	@Column(name = "en_tipo_local", nullable = false, length = 15)
 	private TipoLocal tipoLocal;
-/*	
-	@NotNull
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_bairro", foreignKey = @ForeignKey(name = "fk_endereco_bairro"), nullable = false)
-	private Bairro bairro;	
-*/	
-//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "endereco")
-//	private Set<Bairro> bairro = new HashSet<>();
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "endereco")
 	private Set<Ponto> ponto =  new HashSet<>();
@@ -69,10 +61,6 @@ public class Endereco implements Serializable{
 			joinColumns= {@JoinColumn(name="id_endereco", foreignKey = @ForeignKey(name = "fk_id_endereco_bairro"))},
 			inverseJoinColumns= {@JoinColumn(name="id_bairro", foreignKey = @ForeignKey(name = "fk_id_bairro_endereco"))})
 	private Set<Bairro> bairros = new HashSet<>();	
-	
-//	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "endereco")
-//	private Set<Bairro> bairro = new HashSet<>();	
-	
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="tb_servico", 
