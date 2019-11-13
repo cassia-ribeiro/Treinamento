@@ -1,0 +1,270 @@
+2019-11-12 23:31:54 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "MG"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, 'MG') [22018-199]
+2019-11-12 23:32:13 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "1a"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (2, '1a') [22018-199]
+2019-11-12 23:34:06 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "MG"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, 'MG') [22018-199]
+2019-11-12 23:34:46 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "MG"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, 'MG') [22018-199]
+2019-11-12 23:37:20 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "MG"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, 'MG') [22018-199]
+2019-11-12 23:38:22 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into tb_estado (id_estado, ds_sigla) values (1, ''111aaa[*]');"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, ''111aaa'); [42000-199]
+2019-11-12 23:38:33 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into tb_estado (id_estado, ds_sigla) values (1, ''1a[*]');"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, ''1a'); [42000-199]
+2019-11-12 23:39:17 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into tb_estado (id_estado, ds_sigla) values (1, ''a[*]');"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, ''a'); [42000-199]
+2019-11-12 23:39:18 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into tb_estado (id_estado, ds_sigla) values (1, ''a[*]');"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, ''a'); [42000-199]
+2019-11-12 23:39:18 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into tb_estado (id_estado, ds_sigla) values (1, ''a[*]');"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, ''a'); [42000-199]
+2019-11-12 23:39:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into tb_estado (id_estado, ds_sigla) values (1, ''a[*]');"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, ''a'); [42000-199]
+2019-11-12 23:39:33 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "aa"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, 'aa') [22018-199]
+2019-11-12 23:39:53 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "1a"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, '1a') [22018-199]
+2019-11-12 23:39:54 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "1a"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, '1a') [22018-199]
+2019-11-12 23:39:55 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "1a"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, '1a') [22018-199]
+2019-11-12 23:41:28 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "MG" not found; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, MG) [42122-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:176)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:158)
+	at org.h2.command.dml.Insert.prepare(Insert.java:322)
+	at org.h2.command.Parser.prepareCommand(Parser.java:689)
+	at org.h2.engine.Session.prepareLocal(Session.java:627)
+	at org.h2.engine.Session.prepareCommand(Session.java:565)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1292)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp.query(WebApp.java:1087)
+	at org.h2.server.web.WebApp.process(WebApp.java:237)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:169)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:121)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:158)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2019-11-12 23:41:37 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "MG" not found; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, "MG") [42122-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:176)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:158)
+	at org.h2.command.dml.Insert.prepare(Insert.java:322)
+	at org.h2.command.Parser.prepareCommand(Parser.java:689)
+	at org.h2.engine.Session.prepareLocal(Session.java:627)
+	at org.h2.engine.Session.prepareCommand(Session.java:565)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1292)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp.query(WebApp.java:1087)
+	at org.h2.server.web.WebApp.process(WebApp.java:237)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:169)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:121)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:158)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2019-11-12 23:41:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "MG" not found; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, "MG") [42122-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:176)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:158)
+	at org.h2.command.dml.Insert.prepare(Insert.java:322)
+	at org.h2.command.Parser.prepareCommand(Parser.java:689)
+	at org.h2.engine.Session.prepareLocal(Session.java:627)
+	at org.h2.engine.Session.prepareCommand(Session.java:565)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1292)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp.query(WebApp.java:1087)
+	at org.h2.server.web.WebApp.process(WebApp.java:237)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:169)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:121)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:158)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2019-11-12 23:41:45 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "MG"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, 'MG') [22018-199]
+2019-11-12 23:42:28 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "MG"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, 'MG') [22018-199]
+2019-11-12 23:44:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "MG"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, 'MG') [22018-199]
+2019-11-12 23:44:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into tb_categoria (id_categoria, ds_nome) values (1, TESTE1[*]');"; SQL statement:
+insert into tb_categoria (id_categoria, ds_nome) values (1, TESTE1'); [42000-199]
+2019-11-12 23:45:15 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into tb_categoria (id_categoria, ds_nome) values (1, TESTE1[*]');"; SQL statement:
+insert into tb_categoria (id_categoria, ds_nome) values (1, TESTE1'); [42000-199]
+2019-11-12 23:45:56 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "TESTE1"; SQL statement:
+insert into tb_categoria (id_categoria, ds_nome) values (1, 'TESTE1') [22018-199]
+2019-11-13 00:12:56 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "mg"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, 'mg') [22018-199]
+2019-11-13 00:13:14 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "mg"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (1, 'mg') [22018-199]
+2019-11-13 00:24:44 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "mg"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (11, 'mg') [22018-199]
+2019-11-13 00:24:54 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "MG"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (11, 'MG') [22018-199]
+2019-11-13 00:24:59 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "MG11"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (11, 'MG11') [22018-199]
+2019-11-13 01:34:17 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "sp"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (11, 'sp') [22018-199]
+2019-11-13 01:35:35 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "22x"; SQL statement:
+insert into tb_estado (id_estado, ds_sigla) values (4, '22x') [22018-199]

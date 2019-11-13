@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
@@ -36,8 +38,14 @@ public class Bairro implements Serializable{
 	@Column(name = "ds_nome", nullable = false, length = 100)
 	private String nome;
 
-	@ManyToMany(fetch = FetchType.LAZY,  mappedBy = "bairros")
-	private Set<Endereco> enderecos = new HashSet<>();	
+//	@ManyToMany(fetch = FetchType.LAZY,  mappedBy = "bairros")
+//	private Set<Endereco> enderecos = new HashSet<>();	
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name="tb_bairro_endereco", 
+			joinColumns= {@JoinColumn(name="id_bairro", foreignKey = @ForeignKey(name = "fk_id_bairro_endereco"))},
+			inverseJoinColumns= {@JoinColumn(name="id_endereco", foreignKey = @ForeignKey(name = "fk_id_endereco_bairro"))})
+	private Set<Endereco> enderecos = new HashSet<>();		
 	
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)

@@ -54,13 +54,16 @@ public class Endereco implements Serializable{
 	private Set<Solicitante> solicitante =  new HashSet<>();
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "endereco")
-	private Set<Cep> cep =  new HashSet<>();	
+	private Set<Cep> cep =  new HashSet<>();
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name="tb_endereco_bairro", 
-			joinColumns= {@JoinColumn(name="id_endereco", foreignKey = @ForeignKey(name = "fk_id_endereco_bairro"))},
-			inverseJoinColumns= {@JoinColumn(name="id_bairro", foreignKey = @ForeignKey(name = "fk_id_bairro_endereco"))})
-	private Set<Bairro> bairros = new HashSet<>();	
+	@ManyToMany(fetch = FetchType.LAZY,  mappedBy = "enderecos")
+	private Set<Bairro> bairros = new HashSet<>();
+	
+//	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@JoinTable(name="tb_endereco_bairro", 
+//			joinColumns= {@JoinColumn(name="id_endereco", foreignKey = @ForeignKey(name = "fk_id_endereco_bairro"))},
+//			inverseJoinColumns= {@JoinColumn(name="id_bairro", foreignKey = @ForeignKey(name = "fk_id_bairro_endereco"))})
+//	private Set<Bairro> bairros = new HashSet<>();	
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="tb_servico", 
