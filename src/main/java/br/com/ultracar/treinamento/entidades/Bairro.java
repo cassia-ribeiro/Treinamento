@@ -38,8 +38,6 @@ public class Bairro implements Serializable{
 	@Column(name = "ds_nome", nullable = false, length = 100)
 	private String nome;
 
-//	@ManyToMany(fetch = FetchType.LAZY,  mappedBy = "bairros")
-//	private Set<Endereco> enderecos = new HashSet<>();	
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="tb_bairro_endereco", 

@@ -15,7 +15,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
 @Entity
@@ -28,6 +27,7 @@ public class Estado implements Serializable {
 	@Column(name = "id_estado", nullable = false)	
 	private Long id;
 	
+	@Max(2)
 	@NotBlank
 	@Column(name = "ds_sigla", nullable = false)
 	private String sigla;
@@ -49,6 +49,14 @@ public class Estado implements Serializable {
 
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
+	}
+
+	public Set<Cidade> getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Set<Cidade> cidade) {
+		this.cidade = cidade;
 	}	
 
 }
