@@ -25,9 +25,11 @@ import javax.validation.constraints.Size;
 @Table(name = "tb_cidade")
 public class Cidade implements Serializable{
 	
+	private static final String CIDADE_SEQUENCE = "cidade_sequence";
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cidade_sequence")
-	@SequenceGenerator(name = "cidade_sequence", sequenceName = "cidade_id_sequence")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = CIDADE_SEQUENCE)
+	@SequenceGenerator(name = CIDADE_SEQUENCE, sequenceName = CIDADE_SEQUENCE)
 	@Column(name = "id_cidade", nullable = false)
 	private Long id;
 

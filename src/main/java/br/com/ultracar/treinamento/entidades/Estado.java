@@ -15,21 +15,23 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "tb_estado")
 public class Estado implements Serializable {
 	
+	private static final String ESTADO_SEQUENCE = "estado_sequence";
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estado_sequence")
-	@SequenceGenerator(name = "estado_sequence", sequenceName = "estado_id_sequence", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = ESTADO_SEQUENCE)
+	@SequenceGenerator(name = ESTADO_SEQUENCE, sequenceName = ESTADO_SEQUENCE, allocationSize = 1)
 	@Column(name = "id_estado", nullable = false)	
 	private Long id;
 	
-	@Max(2)
 	@NotBlank
-	@Column(name = "ds_sigla", nullable = false)
+	@Column(name = "ds_sigla", length=2,  nullable = false)
 	private String sigla;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "estado")
