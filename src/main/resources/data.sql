@@ -25,3 +25,10 @@ insert into tb_cep (id_cep, ds_cep, id_endereco) values (4, '34000129', '3');
 insert into tb_complemento_endereco (id_complemento_endereco, ds_complemento, nm_numero, id_endereco) values (1, '8o andar', 981, '1');
 insert into tb_complemento_endereco (id_complemento_endereco, ds_complemento, nm_numero, id_endereco) values (2, '', 1541, '1');
 insert into tb_complemento_endereco (id_complemento_endereco, ds_complemento, nm_numero, id_endereco) values (3, 'casa', 90, '3');
+
+insert into tb_usuario (id_usuario, ds_login, ds_senha, ds_email, dt_ultimo_acesso, lg_administrador, en_situacao) values (1, '24login teste3',;
+'214senha teste3', '214testeemail@hotmail11.com', '2019-09-24', false, 'ATIVO') 
+
+insert into tb_usuario (id_usuario, ds_login, ds_senha, ds_email, dt_ultimo_acesso, lg_administrador, en_situacao) values (2, '2login teste',;
+'2senha teste', '2testeemail@hotmail11.com', '2019-11-24', false, 'ATIVO') 
+

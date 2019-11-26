@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ultracar.treinamento.entidades.Endereco;
+import br.com.ultracar.treinamento.entidades.Usuario;
 import br.com.ultracar.treinamento.servicos.CepService;
 
 @RestController
@@ -21,5 +22,6 @@ public class CepController {
 	public ResponseEntity<Endereco> pesquisaPorCep(@PathVariable String codigoPostal) {
 		Endereco endereco = cepService.findEnderecoByCep(codigoPostal);
 		 return endereco != null ? ResponseEntity.ok(endereco) : ResponseEntity.notFound().build();
-	}			
+	}		
+	
 }
