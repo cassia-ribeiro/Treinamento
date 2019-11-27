@@ -1,9 +1,6 @@
 package br.com.ultracar.treinamento.restcontroladores;
 
-import java.util.List;
-
 import javax.validation.Valid;
-import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

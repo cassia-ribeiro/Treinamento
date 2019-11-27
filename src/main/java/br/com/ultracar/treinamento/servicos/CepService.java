@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.ultracar.treinamento.entidades.Endereco;
+import br.com.ultracar.treinamento.entidades.Cep;
 import br.com.ultracar.treinamento.repositorios.CepRepository;
 
 @Service
@@ -15,8 +15,8 @@ public class CepService {
 	@Autowired
 	private CepRepository repositorio;	
 	
-	public Endereco findEnderecoByCep(String codigoPostal) {
-		return this.repositorio.findEnderecoByCep(codigoPostal);
+	public Cep findCepByEndereco(String codigoPostal) {
+		return this.repositorio.findCepByEndereco(codigoPostal);
 	}	
 
 }
