@@ -37,6 +37,8 @@ public class Cep implements Serializable{
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_endereco", foreignKey = @ForeignKey(name = "fk_cep_endereco"), nullable = false)
-	private Endereco endereco;	
+	private Endereco endereco;
+	
+	
 	
 }
