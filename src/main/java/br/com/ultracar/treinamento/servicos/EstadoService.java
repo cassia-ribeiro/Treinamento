@@ -17,7 +17,7 @@ public class EstadoService {
 	@Autowired
 	private EstadoRepository repositorio;
 	
-	public Page<Estado> findAllUsuarioPage(Estado estado, Pageable pageable) {
+	public Page<Estado> findAllEstadoPage(Estado estado, Pageable pageable) {
 		return this.repositorio.findAllEstado(estado, pageable);
 	}	
 		

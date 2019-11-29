@@ -24,6 +24,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import br.com.ultracar.treinamento.entidades.enumeradores.TipoLocal;
 
 @SuppressWarnings("serial")
@@ -56,6 +58,7 @@ public class Endereco implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "endereco")
 	private Set<Cep> cep =  new HashSet<>();
 	
+	@JsonBackReference
 	@ManyToMany(fetch = FetchType.LAZY,  mappedBy = "enderecos")
 	private Set<Bairro> bairros = new HashSet<>();
 	

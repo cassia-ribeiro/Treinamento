@@ -18,8 +18,8 @@ public class EstadoController {
 	private EstadoService estadoService;
 	
 	@GetMapping
-	public Page<Estado> findAllUsuarioPage(Estado estado, Pageable pageable) {
-		return estadoService.findAllUsuarioPage(estado, pageable);
+	public Page<Estado> findAllEstadoPage(Estado estado, Pageable pageable) {
+		return estadoService.findAllEstadoPage(estado, pageable);
 	}	
 
 }

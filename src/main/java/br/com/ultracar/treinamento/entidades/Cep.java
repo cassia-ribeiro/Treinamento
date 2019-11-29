@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Data;
 
 @SuppressWarnings("serial")
@@ -32,12 +34,28 @@ public class Cep implements Serializable{
 	
 	@NotBlank
 	@Column(name = "ds_cep", nullable = false, length = 8)
-	private String cep;	
+	private String codigoPostal;	
 	
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_endereco", foreignKey = @ForeignKey(name = "fk_cep_endereco"), nullable = false)
 	private Endereco endereco;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCodigoPostal() {
+		return codigoPostal;
+	}
+
+	public void setCodigoPostal(String codigoPostal) {
+		this.codigoPostal = codigoPostal;
+	}
 	
 	
 	

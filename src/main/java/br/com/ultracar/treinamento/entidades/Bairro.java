@@ -22,6 +22,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "tb_bairro")
@@ -38,7 +40,7 @@ public class Bairro implements Serializable{
 	@Column(name = "ds_nome", nullable = false, length = 100)
 	private String nome;
 
-	
+	@JsonManagedReference
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="tb_bairro_endereco", 
 			joinColumns= {@JoinColumn(name="id_bairro", foreignKey = @ForeignKey(name = "fk_id_bairro_endereco"))},

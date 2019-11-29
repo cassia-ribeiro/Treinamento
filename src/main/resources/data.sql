@@ -18,13 +18,17 @@ insert into tb_endereco (id_endereco, ds_logradouro, en_tipo_local) values (3, '
 
 
 insert into tb_cep (id_cep, ds_cep, id_endereco) values (1, '30120002', '1');
-insert into tb_cep (id_cep, ds_cep, id_endereco) values (2, '30170102', '1');
-insert into tb_cep (id_cep, ds_cep, id_endereco) values (3, '30170102', '1');
+insert into tb_cep (id_cep, ds_cep, id_endereco) values (2, '30170104', '1');
+insert into tb_cep (id_cep, ds_cep, id_endereco) values (3, '30130003', '1');
 insert into tb_cep (id_cep, ds_cep, id_endereco) values (4, '34000129', '3');
 
 insert into tb_complemento_endereco (id_complemento_endereco, ds_complemento, nm_numero, id_endereco) values (1, '8o andar', 981, '1');
 insert into tb_complemento_endereco (id_complemento_endereco, ds_complemento, nm_numero, id_endereco) values (2, '', 1541, '1');
 insert into tb_complemento_endereco (id_complemento_endereco, ds_complemento, nm_numero, id_endereco) values (3, 'casa', 90, '3');
+
+insert into tb_bairro_endereco  (id_bairro, id_endereco) values (1, '1');
+insert into tb_bairro_endereco  (id_bairro, id_endereco) values (2, '1');
+insert into tb_bairro_endereco  (id_bairro, id_endereco) values (3, '1');
 
 
 
