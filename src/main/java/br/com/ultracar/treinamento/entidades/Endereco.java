@@ -25,6 +25,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.com.ultracar.treinamento.entidades.enumeradores.TipoLocal;
 
@@ -55,10 +56,11 @@ public class Endereco implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "endereco")
 	private Set<Solicitante> solicitante =  new HashSet<>();
 	
+	@JsonBackReference
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "endereco")
 	private Set<Cep> cep =  new HashSet<>();
 	
-	@JsonBackReference
+	@JsonManagedReference
 	@ManyToMany(fetch = FetchType.LAZY,  mappedBy = "enderecos")
 	private Set<Bairro> bairros = new HashSet<>();
 	

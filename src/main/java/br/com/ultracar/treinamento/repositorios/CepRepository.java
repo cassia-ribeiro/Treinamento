@@ -16,8 +16,8 @@ public interface CepRepository extends JpaRepository<Cep, Long> {
 	
 	//buscar endereco de determinado CEP
 	@Query(		"Select distinct c From Cep c "
-			+   "Inner Join  c.endereco e "
-			+   "Inner Join  e.bairros bai " 
+			+   "Inner Join Fetch  c.endereco e "
+			+   "Inner Join Fetch  e.bairros bai " 
 			+   "Inner Join  bai.cidade cid "
 			+   "Inner Join  cid.estado est "
 			+ 	"Where c.codigoPostal = :codigoPostal")
