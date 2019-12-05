@@ -36,7 +36,7 @@ public class CepController {
 	
 	@GetMapping(value = "/{codigoPostal}", produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<?> pesquisaPorCep(@PathVariable(name = "codigoPostal", required = true) String codigoPostal) {
-		ResponseEntity<?> enderecoDTO = cepService.findCepByEndereco(codigoPostal);
+		Cep enderecoDTO = cepService.findCepByEndereco(codigoPostal);
 		return new ResponseEntity<>(enderecoDTO, HttpStatus.OK);
 	}
 
