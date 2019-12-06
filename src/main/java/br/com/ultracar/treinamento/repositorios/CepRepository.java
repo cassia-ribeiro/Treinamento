@@ -23,13 +23,8 @@ public interface CepRepository extends JpaRepository<Cep, Long> {
 			+ 	"Where c.codigoPostal = :codigoPostal")
 	public Cep findCepByEndereco(@Param("codigoPostal") String codigoPostal);
 	
-//	@Query(		"Select c From Cep c "
-//			+ 	"Where c.codigoPostal = :codigoPostal ")
-//	public Cep findCepByEndereco(@Param("codigoPostal") String codigoPostal);
-	
 	@Query("Select c From Cep c ")	
 	public Page<Cep> findAllCep(Cep cep, Pageable pageable);
 	
-	
-	
+		
 }

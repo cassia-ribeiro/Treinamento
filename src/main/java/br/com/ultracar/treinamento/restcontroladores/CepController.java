@@ -28,16 +28,10 @@ public class CepController {
 		return cepService.findAllCep(cep, pageable);
 	}		
 
-//	@GetMapping(value = "/{codigoPostal}", produces = MediaType.APPLICATION_JSON)
-//	public ResponseEntity<?> pesquisaPorCep(@PathVariable(name = "codigoPostal", required = true) String codigoPostal) {
-//		Cep cep = cepService.findCepByEndereco(codigoPostal);
-//		return new ResponseEntity<>(cep, HttpStatus.OK);
-//	}
-	
 	@GetMapping(value = "/{codigoPostal}", produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<?> pesquisaPorCep(@PathVariable(name = "codigoPostal", required = true) String codigoPostal) {
-		Cep enderecoDTO = cepService.findCepByEndereco(codigoPostal);
-		return new ResponseEntity<>(enderecoDTO, HttpStatus.OK);
+		Cep cep = cepService.findCepByEndereco(codigoPostal);
+		return new ResponseEntity<>(cep, HttpStatus.OK);
 	}
 
 	
@@ -47,8 +41,5 @@ public class CepController {
 //		 return cep != null ? ResponseEntity.ok(cep) : ResponseEntity.notFound().build();
 //	}		
 	
-//	@GetMapping
-//	public Page<Cep> findAllCep(Cep cep,  Pageable pageable) {
-//		return cepService.findAllCep(cep, pageable);
-//	}	
+
 }

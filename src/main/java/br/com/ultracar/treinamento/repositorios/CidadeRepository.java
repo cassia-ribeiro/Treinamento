@@ -16,6 +16,9 @@ public interface CidadeRepository extends JpaRepository<Cidade, Long> {
 	@Query("Select cidade From Cidade cidade where cidade.nome Like %?1% ")
 	public List<Cidade> findByNome(String nome);
 	
+	@Query("Select cidade From Cidade cidade where cidade.nome = :nome ")
+	public Cidade findByNomeExato(String nome);
+	
 	@Query("Select b From Bairro b where b.cidade = :cidade ")
 	public List<Bairro> findCidadeByBairro(Cidade cidade);
 

@@ -21,4 +21,7 @@ public class EstadoService {
 		return this.repositorio.findAllEstado(estado, pageable);
 	}	
 		
+	public Estado findByUf(String uf) {
+		return this.findByUf(uf);
+	}
 }
